@@ -1,0 +1,39 @@
+server:
+  port: 1010
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sbdb?createDatabaseIfNotExist=true
+    username: ${Database}  # Make sure to replace ${Database} with your actual database username
+    password: ${Password}  # Replace ${Password} with your actual password
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update  # Change 'update' to 'create-drop' if you want to drop and recreate the schema on startup
+  data:
+    jpa:
+      repositories:
+        enabled: true
+
+  # Actuator Configuration
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: "*"  # Exposes all actuator endpoints, you can change to specific ones if needed (e.g. health, metrics)
+    endpoint:
+      health:
+        show-details: always  # Display detailed health check results
+    server:
+      port: 8081  # Optional: Separate port for Actuator (default is 8080, but can be changed)
+
+  # Logging Configuration
+  logging:
+    level:
+      org.springframework.web: INFO       # Logs for Spring Web-related components
+      org.hibernate.SQL: DEBUG           # Logs SQL queries executed by Hibernate
+      org.hibernate.type.descriptor.sql.BasicBinder: TRACE  # Logs parameter binding in Hibernate queries
+      com.example: DEBUG                  # Logs for your application classes (replace com.example with your package)

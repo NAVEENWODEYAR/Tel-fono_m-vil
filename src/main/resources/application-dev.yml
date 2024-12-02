@@ -1,3 +1,19 @@
-
 server:
   port: 1010
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sbdb?createDatabaseIfNotExist=true
+    username: root  # Make sure to replace ${Database} with your actual database username
+    password: boss  # Replace ${Password} with your actual password
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update  # Change 'update' to 'create-drop' if you want to drop and recreate the schema on startup
+  data:
+    jpa:
+      repositories:
+        enabled: true
