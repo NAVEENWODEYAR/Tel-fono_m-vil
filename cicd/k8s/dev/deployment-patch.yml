@@ -1,0 +1,14 @@
+apiVersion: app/v1
+kind: Deployment
+metadata:
+  name: telefono-movil-service
+spec:
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+        prometheus.io.path:
+        prometheus.io.probe:
+        prometheus.io.port:
+        prometheus.io.scrape:
+
