@@ -18,7 +18,6 @@ public class TestController {
 
     @GetMapping
     public ResponseEntity<?> test(){
-        log.warn("test controller");
         return ResponseEntity.ok("CONNECTED");
     }
 }
