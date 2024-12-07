@@ -17,7 +17,7 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        format_sql: true  # Formats the SQL for readability
+        format_sql: true
 
   data:
     jpa:
@@ -28,8 +28,8 @@ logging:
   level:
     org:
       hibernate:
-        SQL: DEBUG  # Logs the SQL queries
+        SQL: DEBUG
         type:
           descriptor:
             sql:
-              BasicBinder: TRACE  # Logs the bind parameters (values)
+              BasicBinder: TRACE
