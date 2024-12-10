@@ -10,7 +10,6 @@ import java.util.Locale;
 
 public class NumberFormatUtil {
 
-    // Format a number to a specific pattern (e.g., 2 decimal places)
     public static String formatNumber(Double number, String pattern) {
         if (number == null) {
             return null;
@@ -19,7 +18,6 @@ public class NumberFormatUtil {
         return decimalFormat.format(number);
     }
 
-    // Format a number as currency (uses default locale)
     public static String formatCurrency(Double number) {
         if (number == null) {
             return null;
@@ -28,7 +26,6 @@ public class NumberFormatUtil {
         return currencyFormat.format(number);
     }
 
-    // Format a number as currency with a specific locale
     public static String formatCurrency(Double number, Locale locale) {
         if (number == null) {
             return null;
@@ -37,7 +34,6 @@ public class NumberFormatUtil {
         return currencyFormat.format(number);
     }
 
-    // Format a number as percentage (percentage with two decimal places)
     public static String formatPercentage(Double number) {
         if (number == null) {
             return null;
@@ -48,7 +44,6 @@ public class NumberFormatUtil {
         return percentageFormat.format(number);
     }
 
-    // Convert a string to a number (e.g., Integer, Double, etc.)
     public static Integer parseInteger(String value) {
         if (value == null || value.isEmpty()) {
             return null;
@@ -82,7 +77,6 @@ public class NumberFormatUtil {
         }
     }
 
-    // Convert a number to a string representation
     public static String numberToString(Number number) {
         if (number == null) {
             return null;
@@ -90,7 +84,6 @@ public class NumberFormatUtil {
         return String.valueOf(number);
     }
 
-    // Parse a formatted number string (e.g., "1,000.25") to a number (Double)
     public static Double parseFormattedNumber(String value, Locale locale) {
         if (value == null || value.isEmpty()) {
             return null;
