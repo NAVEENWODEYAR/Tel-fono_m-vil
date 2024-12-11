@@ -1,39 +1,66 @@
 server:
-  port: 1010
+  port: 1010  # Your main application port
 
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/sbdb?createDatabaseIfNotExist=true
-    username: ${Database}  # Make sure to replace ${Database} with your actual database username
-    password: ${Password}  # Replace ${Password} with your actual password
+    username: ${Database}  # Use environment variables for sensitive information (Database username)
+    password: ${Password}  # Use environment variables for sensitive information (Database password)
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQLDialect
-    show-sql: true
+    show-sql: true  # Log SQL queries
     hibernate:
-      ddl-auto: update  # Change 'update' to 'create-drop' if you want to drop and recreate the schema on startup
+      ddl-auto: update  # Use 'update' to auto-create or 'create-drop' to drop/recreate on startup
   data:
     jpa:
       repositories:
-        enabled: true
+        enabled: true  # Enable JPA repositories
 
   # Actuator Configuration
   management:
     endpoints:
       web:
         exposure:
-          include: "*"  # Exposes all actuator endpoints, you can change to specific ones if needed (e.g. health, metrics)
+          include: health,info,metrics,prometheus  # Expose specific actuator endpoints
     endpoint:
       health:
-        show-details: always  # Display detailed health check results
+        show-details: always  # Show detailed health check results
     server:
-      port: 8081  # Optional: Separate port for Actuator (default is 8080, but can be changed)
+      port: 8081  # Separate port for actuator endpoints (default is 8080, can be customized)
+
+  # Prometheus Configuration
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: health,info,metrics,prometheus  # Expose Prometheus metrics
+    endpoint:
+      prometheus:
+        enabled: true  # Enable Prometheus scraping endpoint
+    metrics:
+      export:
+        prometheus:
+          enabled: true  # Ensure Prometheus exporter is enabled
+          # Optionally set Prometheus metrics path (default is /actuator/prometheus)
+          # path: /actuator/prometheus
 
   # Logging Configuration
   logging:
     level:
-      org.springframework.web: INFO       # Logs for Spring Web-related components
-      org.hibernate.SQL: DEBUG           # Logs SQL queries executed by Hibernate
-      org.hibernate.type.descriptor.sql.BasicBinder: TRACE  # Logs parameter binding in Hibernate queries
-      com.example: DEBUG                  # Logs for your application classes (replace com.example with your package)
+      org.springframework.web: INFO  # Logs related to Spring Web
+      org.hibernate.SQL: DEBUG  # Logs SQL queries executed by Hibernate
+      org.hibernate.type.descriptor.sql.BasicBinder: TRACE  # Logs Hibernate parameter binding (e.g., values in queries)
+      com.example: DEBUG  # Logs for your application classes (replace with your actual package)
+
+  # Additional Configuration for Prometheus Metrics Scraping
+  prometheus:
+    # Scraping interval can be customized if you're configuring Prometheus server externally
+    scrape_interval: 15s  # Scrape every 15 seconds (default, can be customized)
+    metrics_path: /actuator/prometheus  # Path where Prometheus scrapes metrics (default /actuator/prometheus)
+
+# Optional: Security (you may need security if the actuator endpoints should be restricted)
+# security:
+#   basic:
+#     enabled: false  # Disable basic authentication if not needed
