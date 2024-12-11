@@ -1,4 +1,4 @@
-apiVersion: app/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: telefono-movil-service
@@ -7,8 +7,13 @@ spec:
   template:
     metadata:
       annotations:
-        prometheus.io.path:
-        prometheus.io.probe:
-        prometheus.io.port:
-        prometheus.io.scrape:
-
+        prometheus.io/path: "/metrics"             # Path to metrics endpoint
+        prometheus.io/probe: "true"                # Enable Prometheus probe
+        prometheus.io/port: "8080"                 # Port where metrics are exposed
+        prometheus.io/scrape: "true"               # Enable scraping by Prometheus
+    spec:
+      containers:
+        - name: telefono-movil-container
+          image: your-image:latest                  # Replace with your actual container image
+          ports:
+            - containerPort: 8080                     # Port your service listens on
