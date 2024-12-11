@@ -76,8 +76,7 @@ class StringCompareTest {
     void testSortStringsWithComparator() {
         List<String> list = Arrays.asList("apple", "banana", "orange", "Apple", "Banana");
 
-        // Sorting strings with Comparator (case-insensitive)
-        list.sort(Comparator.comparing(String::toLowerCase)); // Case-insensitive sorting
+        list.sort(Comparator.comparing(String::toLowerCase));
 
         // Check the sorted list
         assertEquals("Apple", list.get(0), "First element should be 'Apple'.");
