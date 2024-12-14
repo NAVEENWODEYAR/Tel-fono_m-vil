@@ -8,9 +8,11 @@ import com.gowri.tech.entity.Student;
 import com.gowri.tech.repo.StudentRepo;
 import com.gowri.tech.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class StudentServiceImpl implements StudentService {
 
     @Autowired

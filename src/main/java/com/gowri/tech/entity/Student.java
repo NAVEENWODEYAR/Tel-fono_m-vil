@@ -18,8 +18,8 @@ import java.util.Objects;
 public class Student {
 
     @Id
-    @GeneratedValue(generator = "Student_Id")
-    @GenericGenerator(name = "Student_ID",type = StudentIdGenerator.class)
+    @GeneratedValue(generator = "student-id-generator")
+    @GenericGenerator(name = "student-id-generator",type = StudentIdGenerator.class)
     private String stId;
 
     private String  stName;

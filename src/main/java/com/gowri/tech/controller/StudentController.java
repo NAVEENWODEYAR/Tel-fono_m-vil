@@ -27,7 +27,7 @@ public class StudentController {
         return ResponseEntity.ok("CONNECTED");
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public Student saveStudent(@RequestBody Student request){
         log.info("Saving student");
         return studentService.save(request);
