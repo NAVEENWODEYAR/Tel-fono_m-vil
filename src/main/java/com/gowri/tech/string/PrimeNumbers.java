@@ -1,31 +1,28 @@
-package com.gowri.tech.string;/*
+package com.gowri.tech.string;
+/*
  * @author NaveenWodeyar
  * @date 13-12-2024
  */
+import java.util.stream.IntStream;
 
 public class PrimeNumbers {
 
     public static void main(String[] args) {
-        int limit = 100; // You can set any limit here
+        int limit = 100;
         System.out.println("Prime numbers up to " + limit + ":");
 
-        for (int num = 2; num <= limit; num++) {
-            if (isPrime(num)) {
-                System.out.print(num + " ");
-            }
-        }
+        // Use IntStream to generate numbers and filter prime numbers
+        IntStream.rangeClosed(2, limit)   // Generates numbers from 2 to limit
+                .filter(PrimeNumbers::isPrime)  // Filter for prime numbers
+                .forEach(num -> System.out.print(num + " "));  // Print each prime number
     }
 
     public static boolean isPrime(int num) {
         if (num <= 1) {
             return false;
         }
-        for (int i = 2; i <= Math.sqrt(num); i++) {
-            if (num % i == 0) {
-                return false;
-            }
-        }
-        return true;
+        // Check divisibility up to the square root of the number
+        return IntStream.rangeClosed(2, (int) Math.sqrt(num))
+                .noneMatch(i -> num % i == 0);  // If no divisor is found, it's prime
     }
 }
-

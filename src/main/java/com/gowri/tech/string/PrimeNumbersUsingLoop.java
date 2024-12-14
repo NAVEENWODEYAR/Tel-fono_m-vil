@@ -3,11 +3,16 @@ package com.gowri.tech.string;/*
  * @date 13-12-2024
  */
 
-public class PrimeNumbers2 {
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class PrimeNumbersUsingLoop {
+
+    private static final Logger log = LoggerFactory.getLogger(PrimeNumbersUsingLoop.class);
 
     public static void main(String[] args) {
-        int limit = 100; // You can set any limit here
-        System.out.println("Prime numbers up to " + limit + ":");
+        int limit = 100;
+        log.info("Prime numbers up to " + limit + ":");
 
         for (int num = 2; num <= limit; num++) {
             if (isPrime(num)) {
