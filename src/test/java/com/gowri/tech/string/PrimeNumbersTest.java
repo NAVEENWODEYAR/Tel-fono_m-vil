@@ -23,11 +23,6 @@ public class PrimeNumbersTest {
 
     @Test
     public void testMain() {
-        int limit = 20;
-        String expectedOutput = "Prime numbers up to 20:2 3 5 7 11 13 17 19 ";
-
-        // You can call System.setOut and use ByteArrayOutputStream to capture output
-        // Here it's a basic demonstration, but you can extend it with the above method.
         PrimeNumbers.main(new String[]{});
     }
 }

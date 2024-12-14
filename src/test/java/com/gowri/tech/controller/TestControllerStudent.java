@@ -13,17 +13,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(MockitoExtension.class) // Enable Mockito extension for proper mocking
-class TestControllerTest {
+class TestControllerStudent {
 
     private MockMvc mockMvc;
 
     @InjectMocks
-    private TestController testController;
+    private StudentController studentController;
 
     @BeforeEach
     void setUp() {
         // Initialize the MockMvc object before each test
-        mockMvc = MockMvcBuilders.standaloneSetup(testController).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(studentController).build();
     }
 
     @Test

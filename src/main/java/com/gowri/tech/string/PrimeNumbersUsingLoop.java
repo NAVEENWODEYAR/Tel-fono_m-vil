@@ -1,4 +1,5 @@
-package com.gowri.tech.string;/*
+package com.gowri.tech.string;
+/*
  * @author NaveenWodeyar
  * @date 13-12-2024
  */
@@ -12,7 +13,7 @@ public class PrimeNumbersUsingLoop {
 
     public static void main(String[] args) {
         int limit = 100;
-        log.info("Prime numbers up to " + limit + ":");
+        log.info("Prime numbers up to %d:".formatted(limit));
 
         for (int num = 2; num <= limit; num++) {
             if (isPrime(num)) {
