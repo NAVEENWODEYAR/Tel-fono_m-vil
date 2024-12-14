@@ -15,4 +15,8 @@ public interface StudentService {
     Student save(Student student);
 
     List<Student> getStudentList();
+
+    Student updateStudent(Student student, String studentName);
+
+    String delete(String studentName);
 }

@@ -7,6 +7,7 @@ package com.gowri.tech.service.Impl;
 import com.gowri.tech.entity.Student;
 import com.gowri.tech.repo.StudentRepo;
 import com.gowri.tech.service.StudentService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +27,19 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<Student> getStudentList() {
         return studentRepo.findAll();
+    }
+
+    @Override
+    public Student updateStudent(Student student, String studentName) {
+            Student existingStudent = studentRepo.findByStudentName(studentName);
+            BeanUtils.copyProperties(student,existingStudent);
+            return existingStudent;
+        }
+
+
+    @Override
+    public String delete(String studentName) {
+        studentRepo.deleteById(studentName);
+        return "Student " + studentName + "deleted successfully";
     }
 }
