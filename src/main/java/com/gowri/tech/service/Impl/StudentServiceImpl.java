@@ -31,7 +31,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student updateStudent(Student student, String studentName) {
-            Student existingStudent = studentRepo.findByStudentName(studentName);
+            Student existingStudent = studentRepo.findByStName(studentName);
             BeanUtils.copyProperties(student,existingStudent);
             return existingStudent;
         }
