@@ -5,7 +5,6 @@ package com.gowri.tech.entity;
  */
 
 import jakarta.persistence.*;
-
 import java.util.Objects;
 
 @Entity
@@ -16,10 +15,11 @@ public class Teacher {
     @GeneratedValue(generator ="teacher_sequence",strategy = GenerationType.AUTO)
     @SequenceGenerator(name = "teacher_sequence",sequenceName = "teacher_sequence",initialValue = 10,allocationSize = 10)
     private String teacherId;
+
     private String teacherName;
+
     private String teacherMail;
     private String teacherPhone;
-
     public Teacher(){}
 
     public Teacher(String teacherId, String teacherName, String teacherMail, String teacherPhone) {
