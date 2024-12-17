@@ -5,6 +5,9 @@ package com.gowri.tech.entity;
  */
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 import java.util.Objects;
 
 @Entity
@@ -16,10 +19,18 @@ public class Teacher {
     @SequenceGenerator(name = "teacher_sequence",sequenceName = "teacher_sequence",initialValue = 10,allocationSize = 10)
     private String teacherId;
 
+    @NotNull(message = "Teacher_Name can't be empty")
+    @Size(min = 5,max = 50,message = "Should be between 2-50 characters")
     private String teacherName;
 
+    @NotNull(message = "Teacher_Mail can't be empty")
+    @Size(min = 5,max = 50,message = "Should be between 2-50 characters")
     private String teacherMail;
+
+    @NotNull(message = "Phone_No can't be empty")
+    @Size(min = 5,max = 50,message = "Should be between 2-50 characters")
     private String teacherPhone;
+
     public Teacher(){}
 
     public Teacher(String teacherId, String teacherName, String teacherMail, String teacherPhone) {

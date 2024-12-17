@@ -6,34 +6,21 @@ package com.gowri.tech.utils;
 
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.id.IdentifierGenerator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import org.slf4j.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class TeacherIDGenerator implements IdentifierGenerator {
 
-    private static final Logger log = LoggerFactory.getLogger(StudentIdGenerator.class);
-
+    private static final Logger log = LoggerFactory.getLogger(TeacherIDGenerator.class);
     private static final AtomicInteger counter = new AtomicInteger(1);
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS");
 
     @Override
-    public Object generate(SharedSessionContractImplementor sharedSessionContractImplementor, Object o) {
-            log.info("Generating Student ID with Date, Time and Incremented Counter");
-
-            // Get current date and time in yyyyMMddHHmmssSSS format (up to milliseconds)
-            String currentDateTime = new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date());
-
-            // Get the incremented value for the same millisecond
-            int incrementedValue = counter.getAndIncrement();
-
-            // Format the Student ID as: "yyyyMMddHHmmssSSS-COUNTER"
-            String studentId = currentDateTime + "-" + String.format("%03d", incrementedValue);
-
-            log.info("Generated Student ID: {}", studentId);
-
-            return studentId;
+    public Object generate(SharedSessionContractImplementor session, Object entity) {
+        String teacherId = LocalDateTime.now().format(formatter) + "-" + String.format("%03d", counter.getAndIncrement());
+        log.info("Generated Teacher ID: {}", teacherId);
+        return teacherId;
     }
 }

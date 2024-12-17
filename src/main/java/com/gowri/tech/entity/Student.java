@@ -9,6 +9,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.util.Objects;
@@ -22,16 +24,28 @@ public class Student {
     @GenericGenerator(name = "student-id-generator",type = StudentIdGenerator.class)
     private String stId;
 
+    @NotNull(message = "Name can't be empty")
+    @Size(min = 5,max = 50,message = "Should be between 2-50 characters")
     private String  stName;
 
+    @NotNull(message = "Class can't be empty")
+    @Size(min = 5,max = 50,message = "Should be between 2-50 characters")
     private String stClass;
 
+    @NotNull(message = "Mail can't be empty")
+    @Size(min = 5,max = 50,message = "Should be between 2-50 characters")
     private String stMail;
 
+    @NotNull(message = "Gender can't be empty")
+    @Size(min = 5,max = 50,message = "Should be between 2-50 characters")
     private String stGender;
 
+    @NotNull(message = "Mobile_No can't be empty")
+    @Size(min = 5,max = 50,message = "Should be between 2-50 characters")
     private String stMobile;
 
+    @NotNull(message = "Student_Details can't be empty")
+    @Size(min = 5,max = 50,message = "Should be between 2-50 characters")
     public Student() {
     }
 
