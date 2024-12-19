@@ -24,15 +24,12 @@ spring:
       web:
         exposure:
           include: health,info,metrics,prometheus  # Expose specific actuator endpoints
-    endpoint:
       health:
         show-details: always  # Show detailed health check results
     server:
       port: 8081  # Separate port for actuator endpoints (default is 8080, can be customized)
 
   # Prometheus Configuration
-  management:
-    endpoints:
       web:
         exposure:
           include: health,info,metrics,prometheus  # Expose Prometheus metrics
