@@ -4,6 +4,7 @@ package com.gowri.tech.entity;
  * @date 14-12-2024
  */
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.gowri.tech.utils.StudentIdGenerator;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,26 +27,29 @@ public class Student {
 
     @NotNull(message = "Name can't be empty")
     @Size(min = 5,max = 50,message = "Should be between 2-50 characters")
+    @JsonProperty("STUDENT_NAME")
     private String  stName;
 
     @NotNull(message = "Class can't be empty")
     @Size(min = 5,max = 50,message = "Should be between 2-50 characters")
+    @JsonProperty("STUDENT_CLASS")
     private String stClass;
 
     @NotNull(message = "Mail can't be empty")
     @Size(min = 5,max = 50,message = "Should be between 2-50 characters")
+    @JsonProperty("STUDENT_MAIL")
     private String stMail;
 
     @NotNull(message = "Gender can't be empty")
     @Size(min = 5,max = 50,message = "Should be between 2-50 characters")
+    @JsonProperty("STUDENT_GENDER")
     private String stGender;
 
     @NotNull(message = "Mobile_No can't be empty")
     @Size(min = 5,max = 50,message = "Should be between 2-50 characters")
+    @JsonProperty("STUDENT_MOBILE")
     private String stMobile;
 
-    @NotNull(message = "Student_Details can't be empty")
-    @Size(min = 5,max = 50,message = "Should be between 2-50 characters")
     public Student() {
     }
 

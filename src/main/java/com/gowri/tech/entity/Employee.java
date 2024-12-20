@@ -1,6 +1,9 @@
 package com.gowri.tech.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 import java.util.Objects;
 
@@ -15,10 +18,19 @@ public class Employee {
     @EmbeddedId
     private EmployeePKId employeePKId;
 
+    @NotNull(message = "City can't be empty")
+    @Size(min = 4,max = 50,message = "Should be between 2-50 characters")
+    @JsonProperty("EMP_NAME")
     private String empName;
 
+    @NotNull(message = "City can't be empty")
+    @Size(min = 4,max = 50,message = "Should be between 2-50 characters")
+    @JsonProperty("EMP_MAIL")
     private String empMail;
 
+    @NotNull(message = "City can't be empty")
+    @Size(min = 4,max = 50,message = "Should be between 2-50 characters")
+    @JsonProperty("EMP_PHONE")
     private String empPhone;
 
     public Employee() {

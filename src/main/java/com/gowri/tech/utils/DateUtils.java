@@ -5,14 +5,10 @@ package com.gowri.tech.utils;
  */
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.*;
 import java.util.Date;
 
 public class DateUtils {
-
     private static final String DEFAULT_DATE_FORMAT = "yyyy-MM-dd";
     private static final String DEFAULT_DATETIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
@@ -64,7 +60,6 @@ public class DateUtils {
         return new Date();
     }
 
-    // Method to get the current date in default format
     public static String getCurrentDateString() {
         return formatDate(new Date(), DEFAULT_DATE_FORMAT);
     }
