@@ -42,4 +42,9 @@ public class StudentServiceImpl implements StudentService {
         studentRepo.deleteById(studentName);
         return "Student " + studentName + "deleted successfully";
     }
+
+    @Override
+    public Student getStudentById(String id) {
+        return studentRepo.findById(id).get();
+    }
 }
