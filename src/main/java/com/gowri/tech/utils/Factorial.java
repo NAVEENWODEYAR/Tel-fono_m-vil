@@ -1,4 +1,5 @@
-package com.gowri.tech.controller;/*
+package com.gowri.tech.utils;
+/*
  * @author NaveenWodeyar
  * @date 30-12-2024
  */
@@ -7,6 +8,7 @@ import java.util.Scanner;
 
 public class Factorial {
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter a number to calculate its factorial: ");

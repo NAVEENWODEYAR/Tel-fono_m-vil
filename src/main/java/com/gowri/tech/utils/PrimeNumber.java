@@ -1,14 +1,21 @@
-package com.gowri.tech.controller;/*
+package com.gowri.tech.utils;
+/*
  * @author NaveenWodeyar
  * @date 29-12-2024
  */
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Scanner;
 
 public class PrimeNumber {
-    public static void main(String[] args) {
+
+    private static final Logger log = LoggerFactory.getLogger(PrimeNumber.class);
+
+    public String primeNumber() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a number:");
+        log.info("Enter a number:");
         int num = scanner.nextInt();
 
         if (isPrime(num)) {
@@ -18,6 +25,7 @@ public class PrimeNumber {
         }
 
         scanner.close();
+        return null;
     }
 
     public static boolean isPrime(int num) {
