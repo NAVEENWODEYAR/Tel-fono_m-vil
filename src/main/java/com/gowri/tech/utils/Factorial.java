@@ -4,21 +4,40 @@ package com.gowri.tech.utils;
  * @date 30-12-2024
  */
 
-import java.util.Scanner;
 
 public class Factorial {
-    public static void main(String[] args) {
+    public static int factorial(String[] args) {
+        if (args.length == 0) {
+            throw new IllegalArgumentException("No argument provided");
+        }
 
-        Scanner scanner = new Scanner(System.in);
+        // Parse the input number from args
+        int num;
+        try {
+            num = Integer.parseInt(args[0]);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Argument must be a valid integer");
+        }
 
-        System.out.println("Enter a number to calculate its factorial: ");
-        int num = scanner.nextInt();
+        if (num < 0) {
+            throw new IllegalArgumentException("Number must be non-negative");
+        }
+
         int factorial = 1;
-
         for (int i = 1; i <= num; i++) {
             factorial *= i;
         }
 
-        System.out.println("Factorial of " + num + " is " + factorial);
+        return factorial;
+    }
+
+    public static void main(String[] args) {
+        try {
+            // Call the factorial method with args
+            int result = factorial(args);
+            System.out.println("Factorial: " + result);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 }
