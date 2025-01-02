@@ -12,7 +12,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class TeacherIDGenerator implements IdentifierGenerator {
-
     private static final Logger log = LoggerFactory.getLogger(TeacherIDGenerator.class);
     private static final AtomicInteger counter = new AtomicInteger(1);
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS");

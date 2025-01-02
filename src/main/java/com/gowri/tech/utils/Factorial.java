@@ -11,7 +11,6 @@ public class Factorial {
             throw new IllegalArgumentException("No argument provided");
         }
 
-        // Parse the input number from args
         int num;
         try {
             num = Integer.parseInt(args[0]);
@@ -33,7 +32,6 @@ public class Factorial {
 
     public static void main(String[] args) {
         try {
-            // Call the factorial method with args
             int result = factorial(args);
             System.out.println("Factorial: " + result);
         } catch (IllegalArgumentException e) {
