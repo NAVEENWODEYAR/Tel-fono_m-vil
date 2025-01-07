@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.text.ParseException;
 import java.time.*;
+import java.util.Date;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -67,13 +68,13 @@ public class DateUtilsTest {
     @Test
     public void testGetCurrentDateString() {
         String currentDateString = DateUtils.getCurrentDateString();
-        assertThat(currentDateString).matches("\\d{4}-\\d{2}-\\d{2}");  // Check if the current date is in "yyyy-MM-dd" format
+        assertThat(currentDateString).matches("\\d{4}-\\d{2}-\\d{2}");
     }
 
     @Test
     public void testGetCurrentDateTimeString() {
         String currentDateTimeString = DateUtils.getCurrentDateTimeString();
-        assertThat(currentDateTimeString).matches("\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}");  // Check if the current datetime is in "yyyy-MM-dd HH:mm:ss" format
+        assertThat(currentDateTimeString).matches("\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}");
     }
 
     @Test
