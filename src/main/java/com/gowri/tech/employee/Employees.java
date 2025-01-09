@@ -8,24 +8,22 @@ import java.util.Objects;
  */
 public class Employees {
 
+    private static int idCounter = 100;
+    
     private Integer empId;
-
     private String empName;
-
     private Integer empAge;
-
     private String empGender;
-
     private String empDepartment;
-
     private Integer empYearOfJoining;
-
     private Double empSalary;
 
-    public Employees(){}
+    // Default constructor
+    public Employees() {}
 
-    public Employees(Integer empId, String empName, int empAge, String empGender, String empDepartment, int empYearOfJoining, double empSalary) {
-        this.empId = empId;
+    // Modified constructor to automatically generate empId
+    public Employees(String empName, Integer empAge, String empGender, String empDepartment, Integer empYearOfJoining, Double empSalary) {
+        this.empId = idCounter++; // Automatically assign and increment empId
         this.empName = empName;
         this.empAge = empAge;
         this.empGender = empGender;
@@ -34,6 +32,7 @@ public class Employees {
         this.empSalary = empSalary;
     }
 
+    // Getters and Setters
     public Integer getEmpId() {
         return empId;
     }
@@ -90,6 +89,7 @@ public class Employees {
         this.empSalary = empSalary;
     }
 
+    // Equals and HashCode
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -102,15 +102,17 @@ public class Employees {
         return Objects.hash(getEmpId(), getEmpName(), getEmpAge(), getEmpGender(), getEmpDepartment(), getEmpYearOfJoining(), getEmpSalary());
     }
 
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
-    }
-
+    // To string method
     @Override
     public String toString() {
-        return super.toString();
+        return "Employees{" +
+                "empId=" + empId +
+                ", empName='" + empName + '\'' +
+                ", empAge=" + empAge +
+                ", empGender='" + empGender + '\'' +
+                ", empDepartment='" + empDepartment + '\'' +
+                ", empYearOfJoining=" + empYearOfJoining +
+                ", empSalary=" + empSalary +
+                '}';
     }
-
-
 }
