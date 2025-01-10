@@ -5,10 +5,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Component
 public class EmployeeImpl {
-
     private static final Logger log = LoggerFactory.getLogger(EmployeeImpl.class);
 
     public static void main(String[] args) {
@@ -36,5 +36,15 @@ public class EmployeeImpl {
         log.info("EMPLOYEE MANAGEMENT SYSTEM");
 
         employeeList.forEach(emp -> log.info(emp.toString()));
+
+        System.out.println("/n##Query 3.1 : How many male and female employees are there in the organization##/n");
+        Map<String, Long> genderCount = employeeList.stream().collect(Collectors.groupingBy(Employees::getEmpGender, Collectors.counting()));
+        System.out.println(genderCount);
+
+
+        System.out.println("/n##Query 3.2 : Print the name of all departments in the organization##/n");
+        Map<String, List<Employees>> deptList = employeeList.stream().collect(Collectors.groupingBy(Employees::getEmpDepartment));
+        employeeList.stream().map(Employees::getEmpDepartment).distinct().forEach(dept->System.out.println(dept));
+        System.out.println(deptList);
     }
 }
