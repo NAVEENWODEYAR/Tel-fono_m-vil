@@ -19,10 +19,13 @@ spring:
       hibernate:
         format_sql: true
 
-  data:
-    jpa:
-      repositories:
-        enabled: true  # Enable JPA repositories
+  task:
+    scheduling:
+      pool:
+        size: 5  # Number of threads in the pool for scheduled tasks
+      shutdown:
+        awaitTermination: true  # Wait for tasks to finish during shutdown
+        awaitTerminationPeriod: 30s  # Timeout to wait for tasks to complete
 
 logging:
   level:
@@ -34,7 +37,6 @@ logging:
             sql:
               BasicBinder: TRACE  # Log SQL parameters
 
-# Enable and configure Spring Boot Actuator
 management:
   endpoints:
     enabled-by-default: true  # Enable all actuator endpoints by default
@@ -53,11 +55,11 @@ management:
           DOWN: 503   # Map 'DOWN' health status to HTTP 503
 
   # Enable Prometheus endpoint for metrics scraping
-    web:
-      exposure:
-        include: prometheus  # Ensure Prometheus metrics endpoint is exposed
-    metrics:
-      enabled: true
+  web:
+    exposure:
+      include: prometheus  # Ensure Prometheus metrics endpoint is exposed
+  metrics:
+    enabled: true
 
   # Optional: Customize actuator endpoint security if required
   # management.endpoints.web.request-handler.enabled: false # Example of disabling request handlers

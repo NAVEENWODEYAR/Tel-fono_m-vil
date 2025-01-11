@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.gowri.tech")
 @EnableScheduling
 public class TelefonoMovilApplication {
 	private static final Logger log = LoggerFactory.getLogger(TelefonoMovilApplication.class);
