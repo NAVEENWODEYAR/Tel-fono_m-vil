@@ -3,7 +3,6 @@ package com.gowri.tech.employee;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -46,5 +45,8 @@ public class EmployeeImpl {
         Map<String, List<Employees>> deptList = employeeList.stream().collect(Collectors.groupingBy(Employees::getEmpDepartment));
         employeeList.stream().map(Employees::getEmpDepartment).distinct().forEach(dept->System.out.println(dept));
         System.out.println(deptList);
+
+        System.out.println("/n##Query 3.2 : Print the name of all departments in the organization##/n");
+
     }
 }
