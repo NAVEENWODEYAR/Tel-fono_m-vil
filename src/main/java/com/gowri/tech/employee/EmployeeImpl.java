@@ -73,6 +73,31 @@ public class EmployeeImpl {
         System.out.println("\n##Query 3.9 : Who has the most working experience in the organization?\n");
         employeeList.stream().min(Comparator.comparing(Employees::getEmpYearOfJoining))
                 .ifPresent(System.out::println);
+
+        System.out.println("\n##Query 3.10 : How many male and female employees are there in the sales and marketing team?##/n");
+        Map<String, Long> salesGenderCount = employeeList.stream().filter(e -> e.getEmpDepartment().equalsIgnoreCase("sales and marketing team")).collect(Collectors.groupingBy(Employees::getEmpGender, Collectors.counting()));
+        System.out.println(salesGenderCount);
+
+        System.out.println("/n##Query 3.11 : What is the average salary of male and female employees?##/n");
+        Map<String, Double> avgGenderAge = employeeList.stream().collect(Collectors.groupingBy(Employees::getEmpGender, Collectors.averagingDouble(Employees::getEmpAge)));
+        System.out.println(avgGenderAge);
+
+        System.out.println("/n##Query 3.12 : List down the names of all employees in each department?##/n");
+        Map<String, List<Employees>> deptEmp = employeeList.stream().collect(Collectors.groupingBy(Employees::getEmpDepartment));
+        System.out.println(deptEmp);
+
+        System.out.println("/n##Query 3.13 : What is the average salary and total salary of the whole organization##/n");
+        DoubleSummaryStatistics orgSal = employeeList.stream().collect(Collectors.summarizingDouble(Employees::getEmpSalary));
+        System.out.println(orgSal);
+
+        System.out.println("/n##Query 3.14 : Separate the employees who are younger or equal to 25 years from those employees who are older than 25 years##/n");
+        Map<Boolean, List<Employees>> partitionEmployeesByAge = employeeList.stream().collect(Collectors.partitioningBy(e -> e.getEmpAge() > 25));
+        System.out.println(partitionEmployeesByAge);
+
+        System.out.println("/n##Query 3.15 : Who is the oldest employee in the organization? What is his age and which department he belongs to?##/n");
+        Employees seniorMostEmp = employeeList.stream().sorted(Comparator.comparing(Employees::getEmpAge)).findFirst().get();
+        Employees seniorMostEmp1 = employeeList.stream().max(Comparator.comparing(Employees::getEmpAge)).get();
+        System.out.println(seniorMostEmp+"/n"+seniorMostEmp1);
     }
 
     private static void logEmployeeDetails(List<Employees> employeeList) {
