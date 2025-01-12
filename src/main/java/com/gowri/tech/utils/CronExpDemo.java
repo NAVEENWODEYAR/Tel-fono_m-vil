@@ -1,4 +1,5 @@
 package com.gowri.tech.utils;
+
 /*
  * @author NaveenWodeyar
  * @date 11-01-2025
@@ -8,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 

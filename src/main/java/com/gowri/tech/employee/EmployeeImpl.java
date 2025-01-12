@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 @Component
 public class EmployeeImpl {
     private static final Logger log = LoggerFactory.getLogger(EmployeeImpl.class);
+    private static final int YEAR_CUTOFF = 2015;
 
     public static void main(String[] args) {
 
@@ -34,19 +35,47 @@ public class EmployeeImpl {
 
         log.info("EMPLOYEE MANAGEMENT SYSTEM");
 
-        employeeList.forEach(emp -> log.info(emp.toString()));
+        logEmployeeDetails(employeeList);
 
-        System.out.println("/n##Query 3.1 : How many male and female employees are there in the organization##/n");
+        System.out.println("\n##Query 3.1 : How many male and female employees are there in the organization?\n");
         Map<String, Long> genderCount = employeeList.stream().collect(Collectors.groupingBy(Employees::getEmpGender, Collectors.counting()));
         System.out.println(genderCount);
 
+        System.out.println("\n##Query 3.2 : Print the name of all departments in the organization\n");
+        employeeList.stream().map(Employees::getEmpDepartment).distinct().forEach(System.out::println);
 
-        System.out.println("/n##Query 3.2 : Print the name of all departments in the organization##/n");
-        Map<String, List<Employees>> deptList = employeeList.stream().collect(Collectors.groupingBy(Employees::getEmpDepartment));
-        employeeList.stream().map(Employees::getEmpDepartment).distinct().forEach(dept->System.out.println(dept));
-        System.out.println(deptList);
+        System.out.println("\n##Query 3.3 : What is the average age of male and female employees?\n");
+        Map<String, Double> avgEmpSal = employeeList.stream().collect(Collectors.groupingBy(Employees::getEmpGender, Collectors.averagingDouble(Employees::getEmpSalary)));
+        System.out.println(avgEmpSal);
 
-        System.out.println("/n##Query 3.2 : Print the name of all departments in the organization##/n");
+        System.out.println("\n##Query 3.4 : Get the details of highest paid employee in the organization?\n");
+        employeeList.stream().max(Comparator.comparing(Employees::getEmpSalary))
+                .ifPresent(emp -> System.out.println(emp.getEmpAge() + "\n" + emp.getEmpSalary()));
 
+        System.out.println("\n##Query 3.5 : Get the names of all employees who have joined after 2015?\n");
+        List<String> salesAndMarketingTeam = employeeList.stream()
+                .filter(e -> e.getEmpYearOfJoining() > YEAR_CUTOFF)
+                .filter(e -> e.getEmpDepartment().equalsIgnoreCase("Sales And Marketing"))
+                .map(Employees::getEmpName)
+                .collect(Collectors.toList());
+        System.out.println(salesAndMarketingTeam);
+
+        System.out.println("\n##Query 3.7 : What is the average salary of each department?\n");
+        Map<String, Double> deptAvgSal = employeeList.stream().collect(Collectors.groupingBy(Employees::getEmpDepartment, Collectors.averagingDouble(Employees::getEmpSalary)));
+        System.out.println(deptAvgSal);
+
+        System.out.println("\n##Query 3.8 : Get the details of youngest male employee in the product development department?\n");
+        employeeList.stream()
+                .filter(e -> e.getEmpDepartment().equalsIgnoreCase("Product Development"))
+                .min(Comparator.comparing(Employees::getEmpAge))
+                .ifPresent(System.out::println);
+
+        System.out.println("\n##Query 3.9 : Who has the most working experience in the organization?\n");
+        employeeList.stream().min(Comparator.comparing(Employees::getEmpYearOfJoining))
+                .ifPresent(System.out::println);
+    }
+
+    private static void logEmployeeDetails(List<Employees> employeeList) {
+        employeeList.forEach(emp -> log.info(emp.toString()));
     }
 }
