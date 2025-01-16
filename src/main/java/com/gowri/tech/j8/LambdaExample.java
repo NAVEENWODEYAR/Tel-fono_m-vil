@@ -11,7 +11,6 @@ import java.util.Comparator;
 import java.util.List;
 
 public class LambdaExample {
-
     private static final Logger log = LoggerFactory.getLogger(LambdaExample.class);
     public static void lambdaEx(){
         log.info("##Lambda Expressions##");
