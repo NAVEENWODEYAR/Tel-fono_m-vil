@@ -7,13 +7,13 @@ package com.gowri.tech.exceptns;
 
 import java.util.Scanner;
 
-public class CustomeExceptionEx {
+public class CustomExceptionEx {
 
     static String vote(Integer age) throws AgeException{
         if(age < 18){
             return "You're child";
         }else {
-            return "Eligible to vote";
+            return "Please vote";
         }
     }
 
