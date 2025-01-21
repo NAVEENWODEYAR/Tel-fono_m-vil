@@ -1,4 +1,5 @@
 package com.gowri.tech.exceptns;
+
 /*
  * @author NaveenWodeyar
  * @date 20-01-2025
