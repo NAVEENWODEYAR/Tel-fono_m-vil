@@ -19,8 +19,8 @@ public class LambdaExample {
         intList.stream().sorted(Comparator.comparingInt(a -> a)).forEach(System.out::println);
 
     }
-
     public static void main(String[] args) {
+        System.out.println("/n####/n");
         LambdaExample.lambdaEx();
     }
 }

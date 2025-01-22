@@ -8,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class PrimeNumbersUsingLoop {
-
     private static final Logger log = LoggerFactory.getLogger(PrimeNumbersUsingLoop.class);
 
     public static void main(String[] args) {

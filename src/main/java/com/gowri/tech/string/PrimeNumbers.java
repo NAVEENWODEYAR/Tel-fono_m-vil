@@ -1,8 +1,10 @@
 package com.gowri.tech.string;
+
 /*
  * @author NaveenWodeyar
  * @date 13-12-2024
  */
+
 import java.util.stream.IntStream;
 
 public class PrimeNumbers {
