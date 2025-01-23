@@ -36,17 +36,15 @@ public class StringMethods {
     }
 
     static void replaceAllStr(String str){
-        String str1 = "Java123is456fun";
 
         // regex for sequence of digits
         String regex = "\\d+";
 
-        // replace all occurrences of numeric
-        // digits by a space
-        System.out.println(str1.replaceAll(regex, " "));
+        // replace all occurrences of numeric  digits by a space
+        System.out.println(str.replaceAll(regex, " "));
     }
 
     public static void main(String[] args) {
-
+        System.out.println("/n##String Methods##/n");
     }
 }

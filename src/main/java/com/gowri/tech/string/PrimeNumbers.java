@@ -10,6 +10,7 @@ import java.util.stream.IntStream;
 public class PrimeNumbers {
 
     public static void main(String[] args) {
+
         int limit = 100;
         System.out.println("Prime numbers up to " + limit + ":");
 

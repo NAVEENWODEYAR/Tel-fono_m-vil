@@ -1,11 +1,11 @@
 package com.gowri.tech.string;
+
 /*
  * @author NaveenWodeyar
  * @date 10-12-2024
  */
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class StringCompare {
