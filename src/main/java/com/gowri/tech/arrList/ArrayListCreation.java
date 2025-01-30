@@ -58,6 +58,12 @@ public class ArrayListCreation {
         intArrayList.clear();
         System.out.println(intArrayList);
 
+        //addAll()
+        arrayList.addAll(stringArrayList);
+        System.out.println(arrayList);
+        arrayList.addAll(arrayList.size()-1,arrayList);
+        System.out.println(arrayList);
+
 
     }
 }
