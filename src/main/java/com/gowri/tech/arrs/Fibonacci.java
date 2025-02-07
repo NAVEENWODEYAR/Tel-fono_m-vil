@@ -1,18 +1,27 @@
-package com.gowri.tech.arrs;/*
+package com.gowri.tech.arrs;
+
+/*
  * @author NaveenWodeyar
  * @date 02-02-2025
  */
 
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 public class Fibonacci {
     public static void main(String[] args) {
+
         // Scanner to take user input
         Scanner scanner = new Scanner(System.in);
 
         // Ask the user for the number of terms in the Fibonacci series
         System.out.print("Enter the number of terms: ");
         int n = scanner.nextInt();
+
+        Stream.iterate(new int[]{0, 1}, f -> new int[]{f[1], f[0] + f[1]}) // Fibonacci logic
+                .limit(n)
+                .map(f -> f[0])
+                .forEach(System.out::println);
 
         // Print Fibonacci series
         System.out.print("Fibonacci Series: ");

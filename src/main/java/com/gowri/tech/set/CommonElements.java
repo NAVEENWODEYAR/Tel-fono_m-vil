@@ -8,7 +8,6 @@ import java.util.*;
  */
 
 public class CommonElements {
-
     public static LinkedHashSet<Integer> findCommon(List<Integer> list1, List<Integer> list2) {
         LinkedHashSet<Integer> commonElements = new LinkedHashSet<>(list1);
         commonElements.retainAll(list2);
