@@ -1,8 +1,4 @@
 package com.gowri.tech.utils;
-/*
- * @author NaveenWodeyar
- * @date 16-12-2024
- */
 
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.id.IdentifierGenerator;
@@ -11,6 +7,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/*
+ * @author NaveenWodeyar
+ * @date 16-12-2024
+ */
 public class TeacherIDGenerator implements IdentifierGenerator {
     private static final Logger log = LoggerFactory.getLogger(TeacherIDGenerator.class);
     private static final AtomicInteger counter = new AtomicInteger(1);

@@ -1,13 +1,14 @@
 package com.gowri.tech.utils;
-/*
- * @author NaveenWodeyar
- * @date 29-12-2024
- */
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Scanner;
+
+/*
+ * @author NaveenWodeyar
+ * @date 29-12-2024
+ */
 
 public class PrimeNumber {
 

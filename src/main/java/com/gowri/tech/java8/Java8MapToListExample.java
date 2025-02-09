@@ -9,8 +9,7 @@ import java.util.*;
 import java.util.Map.Entry;
 
 public class Java8MapToListExample {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         //Creating a HashMap object
         HashMap<String, String> studentPerformanceMap = new HashMap<String, String>();
 
@@ -30,8 +29,7 @@ public class Java8MapToListExample {
 
         System.out.println("ArrayList Of Keys :");
 
-        for (String key : listOfKeys)
-        {
+        for (String key : listOfKeys) {
             System.out.println(key);
         }
 
@@ -45,8 +43,7 @@ public class Java8MapToListExample {
 
         System.out.println("ArrayList Of Values :");
 
-        for (String value : listOfValues)
-        {
+        for (String value : listOfValues) {
             System.out.println(value);
         }
 
@@ -56,14 +53,12 @@ public class Java8MapToListExample {
         Set<Map.Entry<String, String>> entrySet = studentPerformanceMap.entrySet();
 
         //Creating an ArrayList Of Entry objects
-
-        ArrayList<Map.Entry<String, String>> listOfEntry = new ArrayList<Entry<String,String>>(entrySet);
+        ArrayList<Map.Entry<String, String>> listOfEntry = new ArrayList<Entry<String, String>>(entrySet);
 
         System.out.println("ArrayList of Key-Values :");
 
-        for (Entry<String, String> entry : listOfEntry)
-        {
-            System.out.println(entry.getKey()+" : "+entry.getValue());
+        for (Entry<String, String> entry : listOfEntry) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
         }
     }
 }

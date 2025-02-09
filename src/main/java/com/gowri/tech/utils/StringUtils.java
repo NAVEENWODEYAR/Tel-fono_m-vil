@@ -1,10 +1,12 @@
 package com.gowri.tech.utils;
+
+import org.slf4j.*;
+import org.springframework.stereotype.Component;
+
 /*
  * @author NaveenWodeyar
  * @date 06-12-2024
  */
-import org.slf4j.*;
-import org.springframework.stereotype.Component;
 
 @Component
 public class StringUtils {
