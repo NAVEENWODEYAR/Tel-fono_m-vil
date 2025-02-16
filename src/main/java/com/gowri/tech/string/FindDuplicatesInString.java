@@ -1,10 +1,11 @@
-package com.gowri.tech.string;/*
- * @author NaveenWodeyar
- * @date 15-02-2025
- */
+package com.gowri.tech.string;
 
 import java.util.HashMap;
 import java.util.Map;
+/*
+ * @author NaveenWodeyar
+ * @date 15-02-2025
+ */
 
 public class FindDuplicatesInString {
     public static void main(String[] args) {
