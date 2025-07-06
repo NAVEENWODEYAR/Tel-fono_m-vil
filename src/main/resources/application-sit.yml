@@ -49,7 +49,7 @@ spring:
       org.springframework.web: INFO  # Logs related to Spring Web
       org.hibernate.SQL: DEBUG  # Logs SQL queries executed by Hibernate
       org.hibernate.type.descriptor.sql.BasicBinder: TRACE  # Logs Hibernate parameter binding (e.g., values in queries)
-      com.example: DEBUG  # Logs for your application classes (replace with your actual package)
+      com.example: INFO  # Logs for your application classes (replace with your actual package)
 
   # Additional Configuration for Prometheus Metrics Scraping
   prometheus:
