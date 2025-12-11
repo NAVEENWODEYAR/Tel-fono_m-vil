@@ -20,6 +20,7 @@ import java.util.List;
 @SpringBootApplication(scanBasePackages = "com.gowri.tech")
 @EnableScheduling
 public class TelefonoMovilApplication {
+	
 	private static final Logger log = LoggerFactory.getLogger(TelefonoMovilApplication.class);
 	private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd MMM yyyy hh:mm a");
 
