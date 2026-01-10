@@ -44,7 +44,8 @@ public class ArrayListCreation {
         System.out.println(intArrayList);
 
 
-        //Using subList() method of ArrayList, we can retrieve a portion of an ArrayList. subList() method returns a view of a portion of an ArrayList in the given range
+        //Using subList() method of ArrayList, we can retrieve a portion of an ArrayList. subList() method returns a view of a portion of an ArrayList in the given range.
+
         List<Integer> integerList = intArrayList.subList(intArrayList.size() / 2, intArrayList.size() - 1);
         System.out.println(integerList);
 
@@ -55,6 +56,7 @@ public class ArrayListCreation {
         }
 
         // clear() method removes all elements of an ArrayList. ArrayList will be empty after this method is executed.
+
         intArrayList.clear();
         System.out.println(intArrayList);
 
