@@ -1,4 +1,5 @@
 package com.gowri.tech.controller;
+
 /*
  * @author NaveenWodeyar
  * @date 15-12-2024
@@ -16,22 +17,29 @@ import java.util.List;
 @RestController
 @RequestMapping("/v1/emp")
 public class EmployeeController {
+	
     private static final Logger log = LoggerFactory.getLogger(EmployeeController.class);
+    
     @Autowired
     private EmployeeService employeeService;
 
+    
     @GetMapping
     public String testEmployee(){
+    	log.info("Employee endPoint!");
         return "EMPLOYEE_CONTROLLER";
     }
 
     @PostMapping("/add")
     public Employee saveEmployee(@RequestBody Employee request){
+    	log.info("Employee record added.");
         return employeeService.saveEmployee(request);
     }
 
     @GetMapping("/list")
     public List<Employee> employeeList(){
+    	log.info("Employee list fetched.");
         return employeeService.getEmployeeList();
     }
+    
 }
