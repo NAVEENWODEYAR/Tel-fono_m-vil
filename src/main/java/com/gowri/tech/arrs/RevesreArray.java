@@ -10,9 +10,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class RevereArray {
+public class RevesreArray {
 
     static void reverseArray(String[] arr){
+    	
         System.out.println("Original Array: " + Arrays.toString(arr));
         Integer start = 0;
         Integer end = arr.length-1;
@@ -25,8 +26,10 @@ public class RevereArray {
             start++;
             end--;
         }
+        
         System.out.println("\nReversed Array: " +Arrays.toString(arr));
         reverseJAVA8(arr);
+        
         for (int i = 0; i<  arr.length/2; i++) {
             // Swap the elements
             String temp = arr[i];
@@ -49,5 +52,7 @@ public class RevereArray {
     public static void main(String[] args) {
         System.out.println("\n##########################");
         reverseArray(new String[]{"a","e","b","f","c", "d"});
+        reverseArray(new String[]{"d","c","f","d","e", "a"});
+
     }
 }
