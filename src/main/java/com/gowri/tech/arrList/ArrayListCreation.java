@@ -11,8 +11,8 @@ import java.util.List;
 public class ArrayListCreation {
 
     public static void main(String[] args) {
+    	
         System.out.println("\n## ArrayList ##\n");
-
         ArrayList<String> stringArrayList = new ArrayList<>();
         ArrayList<Integer> intArrayList = new ArrayList<>(20);
         ArrayList<String> arrayList = new ArrayList<>(stringArrayList);
@@ -45,7 +45,6 @@ public class ArrayListCreation {
 
 
         //Using subList() method of ArrayList, we can retrieve a portion of an ArrayList. subList() method returns a view of a portion of an ArrayList in the given range.
-
         List<Integer> integerList = intArrayList.subList(intArrayList.size() / 2, intArrayList.size() - 1);
         System.out.println(integerList);
 
@@ -56,7 +55,6 @@ public class ArrayListCreation {
         }
 
         // clear() method removes all elements of an ArrayList. ArrayList will be empty after this method is executed.
-
         intArrayList.clear();
         System.out.println(intArrayList);
 
@@ -65,7 +63,6 @@ public class ArrayListCreation {
         System.out.println(arrayList);
         arrayList.addAll(arrayList.size()-1,arrayList);
         System.out.println(arrayList);
-
 
     }
 }
