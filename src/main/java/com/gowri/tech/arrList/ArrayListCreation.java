@@ -14,7 +14,7 @@ public class ArrayListCreation {
     	
         System.out.println("\n## ArrayList ##\n");
         ArrayList<String> stringArrayList = new ArrayList<>();
-        ArrayList<Integer> intArrayList = new ArrayList<>(20);
+        ArrayList<Integer> intArrayList = new ArrayList<>(25);
         ArrayList<String> arrayList = new ArrayList<>(stringArrayList);
 
         //ensureCapacity() method is used to increase the current capacity of an ArrayList,
@@ -25,6 +25,7 @@ public class ArrayListCreation {
         intArrayList.add(3);
         intArrayList.add(4);
         intArrayList.add(5);
+        intArrayList.add(6);
         System.out.println(intArrayList);
         intArrayList.set(0, 0);
 
