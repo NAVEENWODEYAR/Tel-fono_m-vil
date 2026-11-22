@@ -31,6 +31,7 @@ public class ArrayListCreation {
 
         //trimToSize() method is used to trim the capacity of arrayList to the current size of ArrayList,
         intArrayList.trimToSize();
+System.out.println("After trimToSize()");
         System.out.println(intArrayList.size());
 
         //add() method which takes index and an element as arguments can be used to insert an element at a particular position of an ArrayList.
