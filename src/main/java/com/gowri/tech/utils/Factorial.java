@@ -33,6 +33,7 @@ public class Factorial {
 
     public static void main(String[] args) {
         try {
+System.out.println("Factorial using for loop.");
             int result = factorial(args);
             System.out.println("Factorial: " + result);
         } catch (IllegalArgumentException e) {
