@@ -19,7 +19,7 @@ public class TeacherIDGenerator implements IdentifierGenerator {
     @Override
     public Object generate(SharedSessionContractImplementor session, Object entity) {
         String teacherId = LocalDateTime.now().format(formatter) + "-" + String.format("%03d", counter.getAndIncrement());
-        log.info("Generated Teacher ID: {}", teacherId);
+        log.info("Generated Teacher ID using Atomic integer {}", teacherId);
         return teacherId;
     }
 }
